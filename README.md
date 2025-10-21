@@ -61,7 +61,7 @@ erDiagram
     DATETIME(6) occurred_at
     JSON meta
   }
-  VERIFY_EVENTS }o--|| USERS : (user_id)
+  VERIFY_EVENTS }o--|| USERS : "user_id"
 ```
 
 ## Indexes
