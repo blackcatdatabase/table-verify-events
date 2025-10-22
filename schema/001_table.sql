@@ -3,7 +3,7 @@
 CREATE TABLE IF NOT EXISTS verify_events (
   id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
   user_id BIGINT UNSIGNED NULL,
-  type ENUM(''verify_success'',''verify_failure'') NOT NULL,
+  type ENUM('verify_success','verify_failure') NOT NULL,
   ip_hash BINARY(32) NULL,
   ip_hash_key_version VARCHAR(64) NULL,
   user_agent VARCHAR(1024) NULL,
