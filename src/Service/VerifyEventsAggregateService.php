@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace BlackCat\Database\Packages\VerifyEvents\Service;
 
-use BlackCat\Core\Database\Database;
+use BlackCat\Core\Database;
 use BlackCat\Database\Packages\VerifyEvents\Dto\VerifyEventDto;
 use BlackCat\Database\Packages\VerifyEvents\Mapper\VerifyEventDtoMapper;
 use BlackCat\Database\Packages\VerifyEvents\Repository\VerifyEventRepository;
