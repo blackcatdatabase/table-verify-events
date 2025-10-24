@@ -6,7 +6,7 @@ namespace BlackCat\Database\Packages\VerifyEvents;
 final class Definitions {
     // --- základní metadata ---
     public static function table(): string { return 'verify_events'; }
-    public static function contractView(): string { return 'v_verify_events_contract'; }
+    public static function contractView(): string { return 'vw_verify_events'; }
     /** @return string[] */
     public static function columns(): array { return [ 'id', 'user_id', 'type', 'ip_hash', 'ip_hash_key_version', 'user_agent', 'occurred_at', 'meta' ]; }
     public static function pk(): string { return 'id'; }
