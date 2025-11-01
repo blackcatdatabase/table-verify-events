@@ -1,4 +1,4 @@
--- Auto-generated from schema-map-postgres.psd1 (map@38d5403)
+-- Auto-generated from schema-map-postgres.psd1 (map@c5e4097)
 -- engine: postgres
 -- table:  verify_events
 CREATE INDEX IF NOT EXISTS idx_ver_user ON verify_events (user_id);
