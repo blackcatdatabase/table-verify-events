@@ -6,11 +6,11 @@ Verification events (email/phone, other checks).
 | Column | Type | Null | Default | Description |
 | --- | --- | --- | --- | --- |
 | id | BIGINT | NO |  | Surrogate primary key. |
-| ip_hash | BYTEA | YES |  | Hashed IP. |
+| ip_hash | BINARY(32) | YES |  | Hashed IP. |
 | ip_hash_key_version | VARCHAR(64) | YES |  | Key version for ip_hash. |
-| meta | JSONB | YES |  | JSON metadata. |
-| occurred_at | TIMESTAMPTZ(6) | NO | CURRENT_TIMESTAMP(6) | When event occurred (UTC). |
-| type | TEXT | NO |  | Verification type. (enum: verify_success, verify_failure) |
+| meta | JSON | YES |  | JSON metadata. |
+| occurred_at | DATETIME(6) | NO | CURRENT_TIMESTAMP(6) | When event occurred (UTC). |
+| type | ENUM('verify_success','verify_failure') | NO |  | Verification type. (enum: verify_success, verify_failure) |
 | user_agent | VARCHAR(1024) | YES |  | Client user agent. |
 | user_id | BIGINT | YES |  | Related user (FK users.id), optional. |
 
@@ -51,5 +51,5 @@ Foreign keys:
 ## Views
 | View | Engine | Flags | File |
 | --- | --- | --- | --- |
-| vw_verify_events | mysql | algorithm=MERGE, security=INVOKER | [packages\verify-events\schema\040_views.mysql.sql](https://github.com/blackcatacademy/blackcat-database/packages/verify-events/schema/040_views.mysql.sql) |
-| vw_verify_events | postgres |  | [packages\verify-events\schema\040_views.postgres.sql](https://github.com/blackcatacademy/blackcat-database/packages/verify-events/schema/040_views.postgres.sql) |
+| vw_verify_events | mysql | algorithm=MERGE, security=INVOKER | [schema\040_views.mysql.sql](schema\040_views.mysql.sql) |
+| vw_verify_events | postgres |  | [schema\040_views.postgres.sql](schema\040_views.postgres.sql) |
