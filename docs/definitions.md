@@ -6,11 +6,11 @@ Verification events (email/phone, other checks).
 | Column | Type | Null | Default | Description |
 | --- | --- | --- | --- | --- |
 | id | BIGINT | NO |  | Surrogate primary key. |
-| ip_hash | BINARY(32) | YES |  | Hashed IP. |
+| ip_hash | mysql: BINARY(32) / postgres: BYTEA | YES |  | Hashed IP. |
 | ip_hash_key_version | VARCHAR(64) | YES |  | Key version for ip_hash. |
-| meta | JSON | YES |  | JSON metadata. |
-| occurred_at | DATETIME(6) | NO | CURRENT_TIMESTAMP(6) | When event occurred (UTC). |
-| type | ENUM('verify_success','verify_failure') | NO |  | Verification type. (enum: verify_success, verify_failure) |
+| meta | mysql: JSON / postgres: JSONB | YES |  | JSON metadata. |
+| occurred_at | mysql: DATETIME(6) / postgres: TIMESTAMPTZ(6) | NO | CURRENT_TIMESTAMP(6) | When event occurred (UTC). |
+| type | mysql: ENUM('verify_success','verify_failure') / postgres: TEXT | NO |  | Verification type. (enum: verify_success, verify_failure) |
 | user_agent | VARCHAR(1024) | YES |  | Client user agent. |
 | user_id | BIGINT | YES |  | Related user (FK users.id), optional. |
 
