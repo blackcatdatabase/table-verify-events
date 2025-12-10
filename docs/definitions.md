@@ -5,13 +5,13 @@ Verification events (email/phone, other checks).
 ## Columns
 | Column | Type | Null | Default | Description |
 | --- | --- | --- | --- | --- |
-| user_agent | VARCHAR(1024) | YES |  | Client user agent. |
-| ip_hash_key_version | VARCHAR(64) | YES |  | Key version for ip_hash. |
-| type | mysql: ENUM('verify_success','verify_failure') / postgres: TEXT | NO |  | Verification type. (enum: verify_success, verify_failure) |
-| occurred_at | mysql: DATETIME(6) / postgres: TIMESTAMPTZ(6) | NO | CURRENT_TIMESTAMP(6) | When event occurred (UTC). |
-| ip_hash | mysql: BINARY(32) / postgres: BYTEA | YES |  | Hashed IP. |
 | id | BIGINT | NO |  | Surrogate primary key. |
+| ip_hash | mysql: BINARY(32) / postgres: BYTEA | YES |  | Hashed IP. |
+| ip_hash_key_version | VARCHAR(64) | YES |  | Key version for ip_hash. |
 | meta | mysql: JSON / postgres: JSONB | YES |  | JSON metadata. |
+| occurred_at | mysql: DATETIME(6) / postgres: TIMESTAMPTZ(6) | NO | CURRENT_TIMESTAMP(6) | When event occurred (UTC). |
+| type | mysql: ENUM('verify_success','verify_failure') / postgres: TEXT | NO |  | Verification type. (enum: verify_success, verify_failure) |
+| user_agent | VARCHAR(1024) | YES |  | Client user agent. |
 | user_id | BIGINT | YES |  | Related user (FK users.id), optional. |
 
 ## Engine Details
