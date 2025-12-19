@@ -3,16 +3,16 @@
 Verification events (email/phone, other checks).
 
 ## Columns
-| Column | Type | Null | Default | Description |
-| --- | --- | --- | --- | --- |
-| id | BIGINT | NO |  | Surrogate primary key. |
-| user_id | BIGINT | YES |  | Related user (FK users.id), optional. |
-| type | mysql: ENUM('verify_success','verify_failure') / postgres: TEXT | NO |  | Verification type. (enum: verify_success, verify_failure) |
-| ip_hash | mysql: BINARY(32) / postgres: BYTEA | YES |  | Hashed IP. |
-| ip_hash_key_version | VARCHAR(64) | YES |  | Key version for ip_hash. |
-| user_agent | VARCHAR(1024) | YES |  | Client user agent. |
-| occurred_at | mysql: DATETIME(6) / postgres: TIMESTAMPTZ(6) | NO | CURRENT_TIMESTAMP(6) | When event occurred (UTC). |
-| meta | mysql: JSON / postgres: JSONB | YES |  | JSON metadata. |
+| Column | Type | Null | Default | Description | Crypto |
+| --- | --- | --- | --- | --- | --- |
+| id | BIGINT | NO |  | Surrogate primary key. |  |
+| user_id | BIGINT | YES |  | Related user (FK users.id), optional. |  |
+| type | mysql: ENUM('verify_success','verify_failure') / postgres: TEXT | NO |  | Verification type. (enum: verify_success, verify_failure) |  |
+| ip_hash | mysql: BINARY(32) / postgres: BYTEA | YES |  | Hashed IP. | `hmac`<br/>ctx: `db.hmac.verify_events.ip_hash`<br/>kv: `ip_hash_key_version` |
+| ip_hash_key_version | VARCHAR(64) | YES |  | Key version for ip_hash. | key version for: `ip_hash` |
+| user_agent | VARCHAR(1024) | YES |  | Client user agent. |  |
+| occurred_at | mysql: DATETIME(6) / postgres: TIMESTAMPTZ(6) | NO | CURRENT_TIMESTAMP(6) | When event occurred (UTC). |  |
+| meta | mysql: JSON / postgres: JSONB | YES |  | JSON metadata. |  |
 
 ## Engine Details
 
